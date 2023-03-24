@@ -4,32 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5abbd928-267e-48f6-b946-f7e69e3a227a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/AbstractEnemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/AbstractSpell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/Character.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/CombatMechanic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/Core.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/Enemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/ForbiddenSpell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/GameLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/House.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/Level.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/LiftObjectSpell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/Pets.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/Potion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/SortingHat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/Spell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/Troll.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/Wand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/Wizard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="5abbd928-267e-48f6-b946-f7e69e3a227a" name="Changes" comment="bfhfh" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +60,26 @@
       <option name="presentableId" value="Default" />
       <updated>1679664877730</updated>
     </task>
+    <task id="LOCAL-00001" summary="bfhfh">
+      <created>1679666990213</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679666990213</updated>
+    </task>
+    <task id="LOCAL-00002" summary="bfhfh">
+      <created>1679667033642</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679667033642</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="bfhfh" />
+    <option name="LAST_COMMIT_MESSAGE" value="bfhfh" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
