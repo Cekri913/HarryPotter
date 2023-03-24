@@ -51,6 +51,7 @@ public class Level {
                 System.out.println(" You are meeting enemies : " + listEnemy);
                 break;
         }
+        wizard.fight(wizard, enemy);
 
 
 
@@ -59,11 +60,11 @@ public class Level {
                 continue;
             }*/
        // wizard.getHealth();
-        System.out.println(" wizard.getHealth() :  " + wizard.getHealth());
-        System.out.println("Yous lost... GAME OVER ");
+        // System.out.println(" wizard.getHealth() :  " + wizard.getHealth());
+        // System.out.println("Yous lost... GAME OVER ");
 
 
-        System.out.println("Congratulations ! You just finished the level " + this.number + " : " + this.name);
+        //System.out.println("Congratulations ! You just finished the level " + this.number + " : " + this.name);
     }
 
 

@@ -25,7 +25,7 @@ public class GameLogic {
     private static Enemy mangemorts;
 
 
-    public GameLogic() {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -40,11 +40,11 @@ public class GameLogic {
         Wizard wizard = new Wizard(x);
         System.out.println("Welcome " + x + " !");
         System.out.println("");
+        System.out.println("Choisissez un animal");
+        Wizard.choosePet();
         System.out.println("Please choose a Core");
         String y = scanner.nextLine();
-        System.out.println("Please choose a wood");
-        String z = scanner.nextLine();
-        Wand wand = new Wand(y, z);
+        Wand wand = new Wand(x);
         wizard.equipWand(wand);
         SortingHat sortingHat = new SortingHat();
         wizard.assignHouse(sortingHat);

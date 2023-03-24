@@ -3,13 +3,13 @@ package code;
 public class Wand {
     // Attributs
     private String core;
-    private String wood;
+    private int size;
     // private int size;
 
 
     // Constructeur
-    public Wand(String core, String wood){
+    public Wand(String core){
         this.core = core;
-        this.wood = wood;
+        this.size = size;
     }
 }

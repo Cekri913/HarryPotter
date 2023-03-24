@@ -1,5 +1,6 @@
 package code;
 
-public class House {
+public enum House {
+    GRYFFINDOR, POUFSOUFFLE, SERDAIGLE, SERPENTARD;
 
 }

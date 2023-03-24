@@ -1,24 +1,22 @@
 package code;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 //attributs du personnage
 public class Wizard {
     private String name;
-    private int niv;
-    public int  health;
-    private int damage;
+    public int  health = 100;
     private Pets pet;
     private Wand wand;
     private String house;
-    ArrayList<String> knownSpells = new ArrayList<>();
-    ArrayList<String> potions = new ArrayList<>();
 
     // Constructeur
-    public Wizard(String name, Wand wand, House house, Pets pet) {
+    public Wizard(String name){ //, int health, Pets pet, Wand wand, House house) {
         this.name = name;
-        this.health = 200;
-        this.damage = 20;
+        this.health = health;
+
     }
+
 
     // Getters
     public String getName() {
@@ -27,10 +25,6 @@ public class Wizard {
 
     public Pets getPet() {
         return pet;
-    }
-
-    public int getNiv() {
-        return niv;
     }
 
     public int getHealth() {
@@ -55,6 +49,25 @@ public class Wizard {
     }
     // Méthodes
 
+
+    public static Pets choosePet(){
+        System.out.println("Which pet do you want?");
+        for(Pets pet: Pets.values()){
+            System.out.println(pet);
+        }
+        Scanner sc = new Scanner(System.in);
+        String answer = sc.nextLine();
+        while(!Pets.contains(answer)){
+            System.out.println("The name isn't in the list");
+            answer = sc.nextLine();
+        }
+        return Pets.valueOf(answer);
+    }
+
+    public void setPet(Pets pet) {
+        this.pet = pet;
+    }
+
     public void equipWand(Wand wand) {
         this.wand = wand;
     }
@@ -63,8 +76,14 @@ public class Wizard {
         this.house = sortingHat.assignHouse();
     }
 
-    public void fight(Wizard wizard, Enemy enemy){
+    public static void fight(Wizard wizard, Enemy enemy, Scanner scan){
         System.out.println("The fight has begun ....");
+        System.out.println("Do you want to attack (1) or defend (2) ? : ");
+        while(!scan.hasNextInt()){
+            scan.nextLine();
+        }
+        int choice = scan.nextInt();
+
     }
     public boolean IsAlive(){
         return this.health > 0;
