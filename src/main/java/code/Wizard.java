@@ -5,10 +5,15 @@ import java.util.Scanner;
 //attributs du personnage
 public class Wizard {
     private String name;
-    public int  health = 100;
+    public long  health = 100;
     private Pets pet;
     private Wand wand;
+    private long spellDamage;
+    private long spellStrength;
     private String house;
+    private Potion potion;
+
+    private final int spellAmplitude = 15;
 
     // Constructeur
     public Wizard(String name){ //, int health, Pets pet, Wand wand, House house) {
@@ -22,12 +27,15 @@ public class Wizard {
     public String getName() {
         return name;
     }
+    public long getSpellDamage() {
+        return spellDamage;
+    }
 
     public Pets getPet() {
         return pet;
     }
 
-    public int getHealth() {
+    public long getHealth() {
         return health;
     }
 
@@ -76,15 +84,6 @@ public class Wizard {
         this.house = sortingHat.assignHouse();
     }
 
-    public static void fight(Wizard wizard, Enemy enemy, Scanner scan){
-        System.out.println("The fight has begun ....");
-        System.out.println("Do you want to attack (1) or defend (2) ? : ");
-        while(!scan.hasNextInt()){
-            scan.nextLine();
-        }
-        int choice = scan.nextInt();
-
-    }
     public boolean IsAlive(){
         return this.health > 0;
     }
@@ -92,7 +91,7 @@ public class Wizard {
         this.health += amount;
     }
     public void increaseDamage(int amount) {
-        this.damage += amount;
+        this.spellDamage += amount;
     }
     public double getSpellDamageMultiplier() {
         if (this.house.equals("Slytherin")) {
@@ -122,7 +121,27 @@ public class Wizard {
                 return 1.0;
 
             }
+
+            }
+
+
+    public void attack(long enemyDamage long spellStrength) {
+        double ale = Math.random() * spellAmplitude;
+        spellStrength= Math.round(ale);
+        System.out.println(spellStrength);
+        if (spellStrength == 0) {
+            System.out.println("You failed your spell....");
+
+        } else {
+
         }
+        health = health - enemyDamage;
+    }
+
+    public void defend() {
+        System.out.println("");
+
+    }
     }
 
 

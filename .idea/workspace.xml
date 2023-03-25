@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5abbd928-267e-48f6-b946-f7e69e3a227a" name="Changes" comment="bfhfh">
+    <list default="true" id="5abbd928-267e-48f6-b946-f7e69e3a227a" name="Changes" comment="1st level">
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/TestU.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Core.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/GameLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/House.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/Wand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Wand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Wizard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +43,9 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2NSkTBOCc9ckWiM6ZrlHJaiHygs" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -61,7 +63,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/code" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.TestU">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="HarryPotter" />
@@ -75,8 +77,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestU" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="code.TestU" />
+      <module name="HarryPotter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="code.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestU" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -118,11 +134,19 @@
       <option name="project" value="LOCAL" />
       <updated>1679671150792</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1st level">
+      <created>1679675349101</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679675349101</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bfhfh" />
-    <option name="LAST_COMMIT_MESSAGE" value="bfhfh" />
+    <MESSAGE value="1st level" />
+    <option name="LAST_COMMIT_MESSAGE" value="1st level" />
   </component>
 </project>

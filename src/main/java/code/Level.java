@@ -1,6 +1,7 @@
 package code;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Level {
 
@@ -51,7 +52,7 @@ public class Level {
                 System.out.println(" You are meeting enemies : " + listEnemy);
                 break;
         }
-        wizard.fight(wizard, enemy);
+        wizard.fight(wizard, enemy, new Scanner(System.in));
 
 
 

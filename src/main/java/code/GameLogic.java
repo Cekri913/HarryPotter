@@ -1,5 +1,6 @@
 package code;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -25,7 +26,7 @@ public class GameLogic {
     private static Enemy mangemorts;
 
 
-    public static void main(String[] args) {
+    public GameLogic() {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -50,12 +51,47 @@ public class GameLogic {
         wizard.assignHouse(sortingHat);
 
         System.out.println(x + ", you have been assigned to the House " + wizard.getHouse());
-        Troll troll = new Troll();
+        troll = new Enemy("troll", 200, 30);
         List<Enemy> enemyList = new ArrayList<Enemy>();
         enemyList.add(troll);
         level1 = new Level(1, troll, "The Philosopher's stone");
         level1.start(wizard);
+    }
+
+        public static void fight(Wizard wizard, Enemy enemy, Scanner scan){
+
+            System.out.println("The fight has begun ....");
+            System.out.println("You are faced to " + enemy.getName() + ".");
+            System.out.println("Do you want to attack (1) or defend (2) ? : ");
+            while(!scan.hasNextInt()){
+                scan.nextLine();
+            }
+            int choice = scan.nextInt();
+            if (choice == 1){
+                System.out.println("You choose to attack..");
+                wizard.attack(enemy.getDamage());
+                //wizard.s
+               long ennemyDamage = enemy.getDamage();
+               long wizardSpell = wizard.getSpellDamage();
+                System.out.println();
+                enemy.attack();
+                System.out.println();
+
+            } else if (choice == 2) {
+                System.out.println("You choose to defend");
+                wizard.defend();
+                // force qui atténue la puissance de frappe de l'ennemi
+                enemy.attack();
+            }
+            else {
+                System.out.println("Please choose 1 or 2");
+                scan.nextLine();
+
+
+        }
+
 
 
     }
+
 }
