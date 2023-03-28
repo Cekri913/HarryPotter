@@ -1,15 +1,28 @@
 package code;
 
+import lombok.Getter;
+
+import java.util.Random;
+
+@Getter
 public class Wand {
-    // Attributs
-    private String core;
+    // Attributes
+    private Core core;
     private int size;
     // private int size;
 
 
-    // Constructeur
-    public Wand(String core){
-        this.core = core;
-        this.size = size;
+    // Constructor
+        public Wand(Core core){
+            this.core = core;
+
+        }
+
+    public Wand(){
+        //initializeCore();
     }
+
+
+
+
 }

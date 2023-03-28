@@ -1,10 +1,13 @@
 package code;
 
+import java.util.Random;
+
 public class Enemy {
 
     // Attributs
     private String name;
     private int health;
+    private Random rand;
     private long damage;
     private final int damageAmplitude = 20;
 
@@ -13,6 +16,7 @@ public class Enemy {
         this.name = name;
         this.health = health;
         this.damage = damage;
+        rand = new Random();
     }
 
     // getters
@@ -21,9 +25,14 @@ public class Enemy {
         return this.name;
     }
 
-    public void attack() {
 
-        System.out.println(getName() + " vous a infligé " + getDamage() + " de dégats");
+    public void takeDamage(int damage) {
+        health -= damage;
+    }
+
+    public void attack(Wizard wizard) {
+        int damage = rand.nextInt(10) + 1;
+        wizard.takeDamage(damage);
     }
 
     public long getDamage() {

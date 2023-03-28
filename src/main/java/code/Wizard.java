@@ -1,75 +1,48 @@
 package code;
-import java.util.ArrayList;
+import lombok.Data;
+
+import java.util.Random;
 import java.util.Scanner;
 
+
 //attributs du personnage
+@Data
 public class Wizard {
     private String name;
-    public long  health = 100;
+    public long health = 10;
     private Pets pet;
     private Wand wand;
+    private Random rand;
     private long spellDamage;
     private long spellStrength;
-    private String house;
+    private House house;
     private Potion potion;
 
     private final int spellAmplitude = 15;
 
-    // Constructeur
-    public Wizard(String name){ //, int health, Pets pet, Wand wand, House house) {
+    private String [] houses = { "SLYTHERIN", "HUFFLEPUFF", "GRYFFINDOR", "RAVENCLAW"};
+
+
+    // Constructor
+    public Wizard(String name) { //, int health, Pets pet, Wand wand, House house) {
         this.name = name;
         this.health = health;
-
+        this.house  = new House(SortingHat.assignHouse());
     }
 
 
-    // Getters
-    public String getName() {
-        return name;
-    }
-    public long getSpellDamage() {
-        return spellDamage;
-    }
 
-    public Pets getPet() {
-        return pet;
-    }
-
-    public long getHealth() {
-        return health;
-    }
-
-    public Wand getWand() {
-        return wand;
-    }
-
-    public String getHouse() {
-        return house;
-    }
-
-    // Setters
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setHealth() {
-        this.health = health;
-    }
-    // Méthodes
-
-
-    public static Pets choosePet(){
-        System.out.println("Which pet do you want?");
-        for(Pets pet: Pets.values()){
+    public static void choosePet() {
+        for (Pets pet : Pets.values()) {
             System.out.println(pet);
         }
         Scanner sc = new Scanner(System.in);
         String answer = sc.nextLine();
-        while(!Pets.contains(answer)){
+        while (!Pets.contains(answer)) {
             System.out.println("The name isn't in the list");
             answer = sc.nextLine();
         }
-        return Pets.valueOf(answer);
+        Pets.valueOf(answer);
     }
 
     public void setPet(Pets pet) {
@@ -80,12 +53,12 @@ public class Wizard {
         this.wand = wand;
     }
 
-    public void assignHouse(SortingHat sortingHat) {
-        this.house = sortingHat.assignHouse();
-    }
-
     public boolean IsAlive(){
         return this.health > 0;
+    }
+
+    public void takeDamage(int damage) {
+        health -= damage;
     }
     public void increaseHealth(int amount) {
         this.health += amount;
@@ -93,47 +66,14 @@ public class Wizard {
     public void increaseDamage(int amount) {
         this.spellDamage += amount;
     }
-    public double getSpellDamageMultiplier() {
-        if (this.house.equals("Slytherin")) {
-            return 1.2;
-        } else {
-            return 1.0;
-        }
-    }
-    public double getPotionEffectivenessMultiplier() {
-        if (this.house.equals("Hufflepuff")) {
-            return 1.2;
-        } else {
-            return 1.0;
-        }
-    }
-        public double getDamageResistance () {
-            if (this.house.equals("Gryffindor")) {
-                return 0.8;
-            } else {
-                return 1.0;
-            }
-        }
-        public double getSpellAccuracy () {
-            if (this.house.equals("Ravenclaw")) {
-                return 1.2;
-            } else {
-                return 1.0;
 
-            }
-
-            }
-
-
-    public void attack(long enemyDamage long spellStrength) {
+    public void attack(long enemyDamage) {
         double ale = Math.random() * spellAmplitude;
-        spellStrength= Math.round(ale);
+        long spellStrength= Math.round(ale);
         System.out.println(spellStrength);
         if (spellStrength == 0) {
             System.out.println("You failed your spell....");
-
         } else {
-
         }
         health = health - enemyDamage;
     }
@@ -142,7 +82,8 @@ public class Wizard {
         System.out.println("");
 
     }
-    }
+
+}
 
 
 

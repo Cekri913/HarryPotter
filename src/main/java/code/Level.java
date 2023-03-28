@@ -36,7 +36,7 @@ public class Level {
         this.enemies = lEnemies;
 
     }
-    // Logique pour demarrer le niveau 1
+    // Logique pour demarrer le niveau
     public void start(Wizard wizard){
         System.out.println("Welcome at the level " + this.number + " : " + this.name);
 
@@ -52,20 +52,8 @@ public class Level {
                 System.out.println(" You are meeting enemies : " + listEnemy);
                 break;
         }
-        wizard.fight(wizard, enemy, new Scanner(System.in));
 
 
-
-            // combatMechanic.fight(wizard, enemy);
-          /*  if (Wizard.IsAlive()) {
-                continue;
-            }*/
-       // wizard.getHealth();
-        // System.out.println(" wizard.getHealth() :  " + wizard.getHealth());
-        // System.out.println("Yous lost... GAME OVER ");
-
-
-        //System.out.println("Congratulations ! You just finished the level " + this.number + " : " + this.name);
     }
 
 
