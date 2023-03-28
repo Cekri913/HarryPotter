@@ -12,25 +12,12 @@ import java.sql.SQLOutput;
 public class House {
     //GRYFFINDOR(1), POUFSOUFFLE(2), SERDAIGLE(3), SERPENTARD(4);
 
-   public  String name; // = { "SLYTHERIN", "HUFFLEPUFF", "GRYFFINDOR", "RAVENCLAW"};
+   public  String name;
     //private int specialPower;
 
 
-
-
-
-
-
-   /*
-      • Les potions sont plus efficaces pour les membres de Hufflepuff.
-      • Les sorts font plus de dégâts pour les membres de Slytherin.
-      • Les sorciers de Gryffindor sont plus résistants aux dégâts.
-      • Les sorciers de Ravenclaw sont plus précis.
-    */
-
-
     public double getSpellDamageMultiplier() {
-        if (this.name.equals(ListHouse.SLYTHERIN)) {
+        if (this.name ==(ListHouse.SLYTHERIN.name())) {
             return 1.2;
         } else {
             return 1.0;

@@ -1,9 +1,8 @@
 package code;
 
-import java.sql.SQLOutput;
+import java.time.temporal.ValueRange;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 public class GameLogic {
@@ -17,7 +16,7 @@ public class GameLogic {
     private static Level level7;
 
 
-    private static Enemy troll;
+    private static Enemy enemy;
     private static Enemy basilic;
     private static Enemy detraqueurs;
     private static Enemy voldemort;
@@ -32,125 +31,134 @@ public class GameLogic {
         Scanner scanner = new Scanner(System.in);
 
         // Initialisation
-
-        System.out.println("                    HARRY POTTER AT HOME");
+        System.out.println(Constant.customDisplayText(Constant.FIVE_TAB, "HARRY POTTER AT HOME", Constant.RED));
         System.out.println();
 
 
-        // Création d'un personnage
 
-        System.out.println("Please enter a pseudo ");
+        // Creation of a character
+
+        System.out.println(Constant.customDisplayText(Constant.WHITE_TEXT,"Please enter a pseudo "));
         String pseudo = scanner.nextLine();
         wizard = new Wizard(pseudo);
 
         System.out.println("Welcome " + wizard.getName() + " !");
-        System.out.println("");
 
-      // System.out.println(wizard.getHouse());
-
-        System.out.println(wizard.getHouse().name);
-        System.out.println("getSpellAccuracy() : " + wizard.getHouse().getSpellAccuracy());
-        System.out.println("getPotionEffectivenessMultiplier() : " + wizard.getHouse().getPotionEffectivenessMultiplier());
-        System.out.println("getDamageResistance() : " + wizard.getHouse().getDamageResistance());
-        System.out.println("getSpellDamageMultiplier() : " + wizard.getHouse().getSpellDamageMultiplier());
-       // System.out.println("spécialité : " + wizard.getHouse().);
+        choosePet();
 
         chooseCore();
-        choosePet();
-        System.exit(0);
-       }
 
-        //choosePet();
-
-        public void chooseCore() {
-            for (Core core : Core.values()) {
-                System.out.println(core.getCoreIndice() + " - " +core.name());
-            }
-            Scanner sc = new Scanner(System.in);
-            String answer = sc.nextLine().toUpperCase();
-            while (!Core.contains(answer)) {
-                System.out.println("Please choose a core in the list");
-                answer = sc.nextLine().toUpperCase();
-            }
-           System.out.println("You choosed : " + answer);
-
-
-/*
-            Wand wand = new Wand(Core(answer));
-            wizard.equipWand(wand);
-
-            System.out.println("core : " + wand.getCore());
-            System.out.println("wand : " + wand.getCore());*/
-
-        }
-
-
-       /* Wand wand = new Wand(Wizard.chooseCore());
-        wizard.equipWand(wand);
         SortingHat sortingHat = new SortingHat();
         wizard.assignHouse(sortingHat);
 
-        System.out.println(pseudo + ", you have been assigned to the House " + wizard.getHouse());
-        troll = new Enemy("troll", 200, 30);
+        System.out.println(pseudo + ", The magic Choixpeau has just assigned to the House " + wizard.getHouse().name);
+        enemy = new Enemy("TROLL", 200);
         List<Enemy> enemyList = new ArrayList<Enemy>();
-        enemyList.add(troll);
-        level1 = new Level(1, troll, "The Philosopher's stone");
-        level1.start(wizard);*/
+        enemyList.add(enemy);
+        level1 = new Level(1, enemy, "The Philosopher's stone");
+        level1.start(wizard);
+        fight(wizard, enemy, new Scanner(System.in));
+        System.out.println(wizard.health);
+        System.out.println(enemy.health);
+        upDate();
 
-
-        public static void fight(Wizard wizard, Enemy enemy, Scanner scan){
-
-            System.out.println("The fight has begun ....");
-            System.out.println("Do you want to attack (1) or defend (2) ? : ");
-            while(!scan.hasNextInt()){
-                scan.nextLine();
-            }
-            int choice = scan.nextInt();
-            if (choice == 1){
-                System.out.println("You choose to attack..");
-                wizard.attack(enemy.getDamage());
-                //wizard.s
-               long enemyDamage = enemy.getDamage();
-               long wizardSpell = wizard.getSpellDamage();
-                System.out.println();
-                enemy.attack(wizard);
-                System.out.println();
-
-            } else if (choice == 2) {
-                System.out.println("You choose to defend");
-                wizard.defend();
-                // force qui atténue la puissance de frappe de l'ennemi
-                enemy.attack(wizard);
-            }
-            else {
-                System.out.println("Please choose 1 or 2");
-                scan.nextLine();
-
-
-        }
     }
-
     public void choosePet() {
         System.out.println("Which pet do you want ? ");
 
         for (Pets pet : Pets.values()) {
             System.out.println(pet);
         }
-
         Scanner sc = new Scanner(System.in);
         String answer = sc.nextLine().toUpperCase();
 
         while (!Pets.contains(answer)) {
-            System.out.println("The name isn't in the list");
+            System.out.println("PLease choose a pet in the list");
             answer = sc.nextLine().toUpperCase();
         }
-
         wizard.setPet(Pets.valueOf(answer));
-        System.out.println("You choose : " + wizard.getPet());
+        System.out.println("Good choice, you chose : " + wizard.getPet() + ". This animal will follow you throughout your journey");
+
 
     }
 
 
 
+    public static Core chooseCore() {
+        final ValueRange range = ValueRange.of(1,Core.values().length);
+        String answer;
+        Core choice = null;
+
+        for (Core core : Core.values()) {
+            System.out.println( core.getCoreIndice() + " - " +core);
+        }
+        Scanner sc = new Scanner(System.in);
+        answer = sc.nextLine();
+
+        try {
+            System.out.println("range = " + range);
+            while (!range.isValidIntValue(Integer.parseInt(answer))) {
+                System.out.println("Please choose a core in the list");
+                answer = sc.nextLine();
+            }
+            for(Core c : Core.values()){
+                if (Integer.parseInt(answer)==c.getCoreIndice()){
+                    choice=c;
+                }
+            }
+            System.out.println("You choosed : " + choice.name() );
+            return choice;
+        }catch (Exception e){
+            System.out.println(" Invalid choice : " + e.getMessage());
+            return chooseCore();
+        }
+
+
+    }
+
+
+    public static void fight(Wizard wizard, Enemy enemy, Scanner scan) {
+
+        System.out.println("Do you want to attack (1) or defend (2) ? : ");
+        while (!scan.hasNextInt()) {
+            scan.nextLine();
+        }
+        int choice = scan.nextInt();
+        while(choice!= 1 && choice != 2){
+            System.out.println("Please choose 1 or 2");
+            scan.nextLine();
+        }
+        if (choice == 1) {
+            System.out.println("You choose to attack..");
+            wizard.attack(enemy);
+            System.out.println();
+            enemy.attack(wizard);
+            System.out.println();
+
+        } if (choice == 2) {
+            System.out.println("You choose to defend");
+            wizard.defend(enemy);
+            // force qui atténue la puissance de frappe de l'ennemy
+        }
+    }
+
+    public void upDate(){
+        // Vérifier si wizard et enemy sont encore en vie
+        if(wizard.IsAlive() && enemy.IsAlive()) {
+            fight(wizard, enemy, new Scanner(System.in));
+        }else{
+            // Afficher un message si le joueur ou le troll est mort
+            if (!wizard.IsAlive()){
+                System.out.println(wizard.getName() + ", " + enemy.getName() + " just killed you...");
+            }
+            else if(!enemy.IsAlive()) {
+                System.out.println("Congratulation " + wizard.getName() + ", " + "you just killed " + enemy.getName());
+            }
+        }
+    }
+
 
 }
+
+
+

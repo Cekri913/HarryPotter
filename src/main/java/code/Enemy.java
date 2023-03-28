@@ -5,17 +5,16 @@ import java.util.Random;
 public class Enemy {
 
     // Attributs
-    private String name;
-    private int health;
+    public String name;
+    public int health = 20;
     private Random rand;
-    private long damage;
+    // rivate long damage;
     private final int damageAmplitude = 20;
 
     // Constructeur
-    public Enemy(String name, int health, int damage) {
+    public Enemy(String name, int health) {
         this.name = name;
-        this.health = health;
-        this.damage = damage;
+        this.health = 20;
         rand = new Random();
     }
 
@@ -26,28 +25,27 @@ public class Enemy {
     }
 
 
-    public void takeDamage(int damage) {
-        health -= damage;
-    }
-
     public void attack(Wizard wizard) {
-        int damage = rand.nextInt(10) + 1;
-        wizard.takeDamage(damage);
+        int damage = (int) (Math.random() * damageAmplitude) + 1;
+        wizard.calculateDamage(damage);
+        System.out.println(name + " has inflicted you " + damage + " of damage");
     }
 
-    public long getDamage() {
-        double ale = Math.random()*damageAmplitude;
-        damage = Math.round(ale);
-        if(damage == 0){
-            damage = 2;
-        }
-        System.out.println("Voici ce que j'apporte : " + damage);
-        return damage;
+    // La méthode prendreDegats permet de réduire les points de vie du troll lorsqu’il est touché par un objet.
+    public void calculateDamage(int damage) {
+        this.health -= damage;
+    }
+    public boolean IsAlive(){
+        return this.health > 0;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
+
+
+    //La méthode estVaincu renvoie true si les points de vie du troll sont à zéro ou en dessous.
+    public boolean isDefeated(){
+        return this.health <= 0;
     }
 }
+
 
 

@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class Level {
 
+    public int getNumber() {
+        return number;
+    }
+
     // Attributs
     private int number;
     private List<Enemy> enemies;
@@ -52,8 +56,15 @@ public class Level {
                 System.out.println(" You are meeting enemies : " + listEnemy);
                 break;
         }
+        System.out.println("The fight has begun ....");
+        // ajouter un attribut "PROCESS" pour narrer l'évolution/narrer l'histoire de chaque niveau
 
 
+    }
+    public void end(Wizard wizard, Enemy enemy){
+        if(!wizard.IsAlive()){
+
+        }
     }
 
 

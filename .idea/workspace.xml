@@ -4,22 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1815521-5178-4b3e-802f-c30bdc2419cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/ListHouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="c1815521-5178-4b3e-802f-c30bdc2419cd" name="Changes" comment="1st level alm2">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/Constant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/Weapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Core.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/GameLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/House.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/SortingHat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/SortingHat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/TestU.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/Troll.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/Wand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Wand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Wizard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -64,6 +59,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "/Users/cekri/Desktop/HPcompléments/HarryPotter",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
@@ -97,7 +93,19 @@
       <option name="presentableId" value="Default" />
       <updated>1679953736787</updated>
     </task>
+    <task id="LOCAL-00001" summary="1st level alm2">
+      <created>1680020753970</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680020753970</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1st level alm2" />
+    <option name="LAST_COMMIT_MESSAGE" value="1st level alm2" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/HarryPotter$Main.ic" NAME="Main Coverage Results" MODIFIED="1679963049288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -2,23 +2,29 @@ package code;
 import lombok.Data;
 
 import java.util.Random;
-import java.util.Scanner;
 
 
 //attributs du personnage
 @Data
 public class Wizard {
     private String name;
-    public long health = 10;
+    public int health = 100;
+    private boolean inDefense;
     private Pets pet;
+
+    public static Core getCore() {
+        return core;
+    }
+    private static Core core;
     private Wand wand;
     private Random rand;
     private long spellDamage;
-    private long spellStrength;
-    private House house;
-    private Potion potion;
 
-    private final int spellAmplitude = 15;
+    // private long spellStrength;
+    private House house;
+    // private Potion potion;
+
+    private int spellAmplitude = 15;
 
     private String [] houses = { "SLYTHERIN", "HUFFLEPUFF", "GRYFFINDOR", "RAVENCLAW"};
 
@@ -26,24 +32,11 @@ public class Wizard {
     // Constructor
     public Wizard(String name) { //, int health, Pets pet, Wand wand, House house) {
         this.name = name;
-        this.health = health;
+        this.health = 100;
         this.house  = new House(SortingHat.assignHouse());
+        this.inDefense = false;
     }
 
-
-
-    public static void choosePet() {
-        for (Pets pet : Pets.values()) {
-            System.out.println(pet);
-        }
-        Scanner sc = new Scanner(System.in);
-        String answer = sc.nextLine();
-        while (!Pets.contains(answer)) {
-            System.out.println("The name isn't in the list");
-            answer = sc.nextLine();
-        }
-        Pets.valueOf(answer);
-    }
 
     public void setPet(Pets pet) {
         this.pet = pet;
@@ -57,32 +50,39 @@ public class Wizard {
         return this.health > 0;
     }
 
-    public void takeDamage(int damage) {
-        health -= damage;
+    public void calculateDamage(int damage) {
+        if (inDefense == true) {
+            // Réduire les dégâts d'un certain coefficient si le joueur est en défense
+            int coef  =(int) (Math.random()*5) + 1;
+            damage = damage / coef;
+        }
+        this.health -= damage;
     }
     public void increaseHealth(int amount) {
         this.health += amount;
     }
     public void increaseDamage(int amount) {
-        this.spellDamage += amount;
+        this.spellAmplitude += amount;
     }
 
-    public void attack(long enemyDamage) {
-        double ale = Math.random() * spellAmplitude;
-        long spellStrength= Math.round(ale);
-        System.out.println(spellStrength);
-        if (spellStrength == 0) {
-            System.out.println("You failed your spell....");
-        } else {
-        }
-        health = health - enemyDamage;
+   public void attack(Enemy enemy) {
+       int damage = (int) (Math.random() * spellAmplitude);
+       if (damage == 0) {
+           System.out.println("You missed your spell...");
+       } else {
+           enemy.calculateDamage(damage);
+           System.out.println("You have inflicted " + damage + " of damages to " + enemy.getName());
+       }
+   }
+
+    public void defend(Enemy enemy) {
+        this.inDefense = true;
+        enemy.attack(this);
     }
 
-    public void defend() {
-        System.out.println("");
-
+    public void assignHouse(SortingHat sortingHat) {
+        this.house = house;
     }
-
 }
 
 
