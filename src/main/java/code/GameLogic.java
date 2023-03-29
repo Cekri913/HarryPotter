@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class GameLogic {
     // levels
+    private static Level level;
     private static Level level1;
     private static Level level2;
     private static Level level3;
@@ -38,11 +39,15 @@ public class GameLogic {
 
         // Creation of a character
 
-        System.out.println(Constant.customDisplayText(Constant.WHITE_TEXT,"Please enter a pseudo "));
-        String pseudo = scanner.nextLine();
-        wizard = new Wizard(pseudo);
-
-        System.out.println("Welcome " + wizard.getName() + " !");
+        System.out.println(Constant.customDisplayText(Constant.WHITE_TEXT,"Please enter a name "));
+        String name = scanner.nextLine();
+        while(!isValidPseudo(name)){
+            System.out.println(Constant.customDisplayText(Constant.ITALIC_TEXT,"Please put a capital letter and/or at least one number at your name"));
+            name = scanner.nextLine();
+        }  if(isValidPseudo(name)) {
+            wizard = new Wizard(name);
+            System.out.println(Constant.customDisplayText(Constant.BOLD_TEXT,"Welcome " + wizard.getName() + " !"));
+        }
 
         choosePet();
 
@@ -51,7 +56,7 @@ public class GameLogic {
         SortingHat sortingHat = new SortingHat();
         wizard.assignHouse(sortingHat);
 
-        System.out.println(pseudo + ", The magic Choixpeau has just assigned to the House " + wizard.getHouse().name);
+        System.out.println(name + ", The magic Choixpeau has just assigned to the House " + wizard.getHouse().name);
         enemy = new Enemy("TROLL", 200);
         List<Enemy> enemyList = new ArrayList<Enemy>();
         enemyList.add(enemy);
@@ -61,7 +66,13 @@ public class GameLogic {
         System.out.println(wizard.health);
         System.out.println(enemy.health);
         // upDate();
+        level1.end(wizard, enemy, new Scanner(System.in));
 
+    }
+    public static boolean isValidPseudo(String name) {
+        boolean hasUppercase = !name.equals(name.toLowerCase());
+        boolean hasDigit = name.matches(".*\\d.*");
+        return hasUppercase && hasDigit;
     }
     public void choosePet() {
         System.out.println("Which pet do you want ? ");
@@ -77,7 +88,7 @@ public class GameLogic {
             answer = sc.nextLine().toUpperCase();
         }
         wizard.setPet(Pets.valueOf(answer));
-        System.out.println("Good choice, you chose : " + wizard.getPet() + ". This animal will follow you throughout your journey");
+        System.out.println("Good choice, you chose the " + wizard.getPet() + ". This animal will follow you throughout your journey");
 
 
     }
@@ -85,6 +96,7 @@ public class GameLogic {
 
 
     public static Core chooseCore() {
+        System.out.println("Please choose a core for your wand");
         final ValueRange range = ValueRange.of(1,Core.values().length);
         String answer;
         Core choice = null;

@@ -8,7 +8,11 @@ import java.util.Random;
 @Data
 public class Wizard {
     private String name;
-    public int health = 100;
+
+    public static int getHealth() {
+        return health;
+    }
+    public static int health = 100;
     private boolean inDefense;
     private Pets pet;
 
@@ -24,7 +28,11 @@ public class Wizard {
     private House house;
     // private Potion potion;
 
-    private int spellAmplitude = 15;
+    public static int getSpellAmplitude() {
+        return spellAmplitude;
+    }
+
+    public static int spellAmplitude = 15;
 
     private String [] houses = { "SLYTHERIN", "HUFFLEPUFF", "GRYFFINDOR", "RAVENCLAW"};
 
@@ -36,7 +44,6 @@ public class Wizard {
         this.house  = new House(SortingHat.assignHouse());
         this.inDefense = false;
     }
-
 
     public void setPet(Pets pet) {
         this.pet = pet;
@@ -62,7 +69,7 @@ public class Wizard {
         this.health *= amount;
     }
     public void increaseDamage(double amount) {
-        this.spellAmplitude += amount;
+        this.spellAmplitude *= amount;
     }
 
    public void attack(Enemy enemy) {

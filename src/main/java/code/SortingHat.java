@@ -34,7 +34,7 @@ public class SortingHat {
         String chosenHousename = HOUSES.get(random);
         //System.out.println("initializeHouse : Wizard house = " + chosenHousename);
 
-        return null;
+        return chosenHousename;
 
     }
 }

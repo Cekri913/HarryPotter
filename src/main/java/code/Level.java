@@ -61,11 +61,14 @@ public class Level {
 
 
     }
-    public void end(Wizard wizard, Enemy enemy){
-        Scanner sc = new Scanner(System.in);
-        if(!wizard.IsAlive()){
+    public void end(Wizard wizard, Enemy enemy, Scanner sc){
+        if(!enemy.IsAlive()){
             System.out.println("You just finished the level " + this.name);
             System.out.println("Do you want increase your health (1) or increase your spellDamage (2) for the next of your journey ? ");
+            while (!sc.hasNextInt()) {
+                System.out.println("Please choose 1 or 2");
+                sc.nextLine();
+            }
             int choice = sc.nextInt();
             while(choice != 1 && choice != 2){
                 System.out.println("Please choose 1 or 2");
@@ -73,18 +76,20 @@ public class Level {
                 choice = sc.nextInt();
             }if(choice == 1){
                 System.out.println("health increasing...");
-                double amount = (double) (Math.random())*2;
+                double amount = (double) (Math.random())*2 + 1;
                 wizard.increaseHealth(amount);
                 System.out.println("Increasing success ! \n Your health has been multiplied by " + amount);
-                wizard.getHealth();
+                System.out.println(wizard.getHealth());;
             }
             if(choice == 2){
                 System.out.println("damage increasing...");
-                double amount = (double) (Math.random()*2);
+                double amount = (double) (Math.random()*2 + 1);
                 wizard.increaseDamage(amount);
                 System.out.println("Increasing success ! \n Your spellDamage has been multiplied by " + amount);
-                wizard.getSpellDamage();
+                System.out.println(wizard.getSpellAmplitude());
             }
+        } else if (!wizard.IsAlive()) {
+            System.out.println(Constant.customDisplayText(Constant.FIVE_TAB,"GAME OVER", Constant.RED));
         }
     }
 
