@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1815521-5178-4b3e-802f-c30bdc2419cd" name="Changes" comment="1st level alm2">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/Constant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/Weapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/GameLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/House.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/SortingHat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/SortingHat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Wizard.java" afterDir="false" />
@@ -100,12 +96,30 @@
       <option name="project" value="LOCAL" />
       <updated>1680020753970</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1st level alm2">
+      <created>1680046674396</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680046674396</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1st level alm2" />
     <option name="LAST_COMMIT_MESSAGE" value="1st level alm2" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/code/Level.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/HarryPotter$Main.ic" NAME="Main Coverage Results" MODIFIED="1679963049288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

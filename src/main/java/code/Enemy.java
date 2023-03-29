@@ -28,7 +28,7 @@ public class Enemy {
     public void attack(Wizard wizard) {
         int damage = (int) (Math.random() * damageAmplitude) + 1;
         wizard.calculateDamage(damage);
-        System.out.println(name + " has inflicted you " + damage + " of damage");
+        System.out.println(Constant.customDisplayText(Constant.RED, name + " has inflicted you " + damage + " of damage"));
     }
 
     // La méthode prendreDegats permet de réduire les points de vie du troll lorsqu’il est touché par un objet.

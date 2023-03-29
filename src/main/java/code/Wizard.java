@@ -58,10 +58,10 @@ public class Wizard {
         }
         this.health -= damage;
     }
-    public void increaseHealth(int amount) {
-        this.health += amount;
+    public void increaseHealth(double amount) {
+        this.health *= amount;
     }
-    public void increaseDamage(int amount) {
+    public void increaseDamage(double amount) {
         this.spellAmplitude += amount;
     }
 
@@ -71,7 +71,7 @@ public class Wizard {
            System.out.println("You missed your spell...");
        } else {
            enemy.calculateDamage(damage);
-           System.out.println("You have inflicted " + damage + " of damages to " + enemy.getName());
+           System.out.println(Constant.customDisplayText(Constant.BOLD_TEXT,"You have inflicted " + damage + " of damages to " + enemy.getName(), Constant.GREEN));
        }
    }
 

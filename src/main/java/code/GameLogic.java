@@ -60,7 +60,7 @@ public class GameLogic {
         fight(wizard, enemy, new Scanner(System.in));
         System.out.println(wizard.health);
         System.out.println(enemy.health);
-        upDate();
+        // upDate();
 
     }
     public void choosePet() {
@@ -98,7 +98,7 @@ public class GameLogic {
         try {
             System.out.println("range = " + range);
             while (!range.isValidIntValue(Integer.parseInt(answer))) {
-                System.out.println("Please choose a core in the list");
+                System.out.println("Please choose a number between 1 and 4");
                 answer = sc.nextLine();
             }
             for(Core c : Core.values()){
@@ -109,39 +109,56 @@ public class GameLogic {
             System.out.println("You choosed : " + choice.name() );
             return choice;
         }catch (Exception e){
-            System.out.println(" Invalid choice : " + e.getMessage());
+            System.out.println(" Please choose a core in the list");
             return chooseCore();
         }
 
 
     }
 
-
+    /**
+     * Narre la mécanique et le fonctionnement du combat
+     * @param wizard
+     * @param enemy
+     * @param scan
+     */
     public static void fight(Wizard wizard, Enemy enemy, Scanner scan) {
+        while(wizard.IsAlive() && enemy.IsAlive()) {
+            System.out.println("Do you want to attack (1) or defend (2) ? : ");
+            while (!scan.hasNextInt()) {
+                scan.nextLine();
+            }
+            int choice = scan.nextInt();
+            while (choice != 1 && choice != 2) {
+                System.out.println("Please choose 1 or 2");
+                scan.nextLine();
+                choice = scan.nextInt();
+            }
+            if (choice == 1) {
+                System.out.println("You choose to attack..");
+                wizard.attack(enemy);
+                System.out.println();
+                enemy.attack(wizard);
+                System.out.println();
 
-        System.out.println("Do you want to attack (1) or defend (2) ? : ");
-        while (!scan.hasNextInt()) {
-            scan.nextLine();
-        }
-        int choice = scan.nextInt();
-        while(choice!= 1 && choice != 2){
-            System.out.println("Please choose 1 or 2");
-            scan.nextLine();
-        }
-        if (choice == 1) {
-            System.out.println("You choose to attack..");
-            wizard.attack(enemy);
-            System.out.println();
-            enemy.attack(wizard);
-            System.out.println();
+            }
+            if (choice == 2) {
+                System.out.println("You choose to defend");
+                wizard.defend(enemy);
+                // force qui atténue la puissance de frappe de l'ennemy
+            }
+            System.out.println(wizard.health);
+            System.out.println(enemy.health);
+        }if(!wizard.IsAlive()){
+            System.out.println(Constant.customDisplayText(Constant.BLACK,wizard.getName() + ", " + enemy.getName() + " just killed you..."));
+        } else if (!enemy.IsAlive()) {
+            System.out.println(Constant.customDisplayText(Constant.GREEN,"Congratulation " + wizard.getName() + ", " + "you just killed " + enemy.getName()));
 
-        } if (choice == 2) {
-            System.out.println("You choose to defend");
-            wizard.defend(enemy);
-            // force qui atténue la puissance de frappe de l'ennemy
         }
+
     }
 
+    /*
     public void upDate(){
         // Vérifier si wizard et enemy sont encore en vie
         if(wizard.IsAlive() && enemy.IsAlive()) {
@@ -149,13 +166,13 @@ public class GameLogic {
         }else{
             // Afficher un message si le joueur ou le troll est mort
             if (!wizard.IsAlive()){
-                System.out.println(wizard.getName() + ", " + enemy.getName() + " just killed you...");
+                System.out.println(Constant.customDisplayText(Constant.BLACK,wizard.getName() + ", " + enemy.getName() + " just killed you..."));
             }
             else if(!enemy.IsAlive()) {
-                System.out.println("Congratulation " + wizard.getName() + ", " + "you just killed " + enemy.getName());
+                System.out.println(Constant.customDisplayText(Constant.GREEN,"Congratulation " + wizard.getName() + ", " + "you just killed " + enemy.getName()));
             }
         }
-    }
+    }*/
 
 
 }

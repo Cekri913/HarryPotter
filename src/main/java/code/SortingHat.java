@@ -14,6 +14,11 @@ public class SortingHat {
     public static final List<String> HOUSES = Stream.of((ListHouse.values())).map(ListHouse::name).collect(Collectors.toList());
 
     // Méthode permettant au Choixpeau Magique d'assigner une maison à un sorcier en choisissant aléatoirement parmi les maisons disponibles.
+
+    /**
+     *
+     * @return
+     */
     public static String assignHouse(){
        // int index = (int)(Math.random() * HOUSES.length);
        // return HOUSES[index];
@@ -23,13 +28,13 @@ public class SortingHat {
         int max = HOUSES.size() - 1;
         int random = r.nextInt((max - min) + 1) + min;
 
-        System.out.println("assignHouse : random = " + random);
-        System.out.println("assignHouse : max = " + max);
+        //System.out.println("assignHouse : random = " + random);
+        //System.out.println("assignHouse : max = " + max);
 
         String chosenHousename = HOUSES.get(random);
-        System.out.println("initializeHouse : Wizard house = " + chosenHousename);
+        //System.out.println("initializeHouse : Wizard house = " + chosenHousename);
 
-        return chosenHousename;
+        return null;
 
     }
 }
