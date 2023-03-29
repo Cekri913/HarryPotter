@@ -12,7 +12,7 @@ public class Wizard {
     public static int getHealth() {
         return health;
     }
-    public static int health = 100;
+    public static int health = 40;
     private boolean inDefense;
     private Pets pet;
 
@@ -25,7 +25,8 @@ public class Wizard {
     private long spellDamage;
 
     // private long spellStrength;
-    private House house;
+    public House house;
+
     // private Potion potion;
 
     public static int getSpellAmplitude() {

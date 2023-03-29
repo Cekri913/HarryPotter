@@ -6,16 +6,17 @@ public class Enemy {
 
     // Attributs
     public String name;
-    public int health = 20;
+    public int health;
     private Random rand;
     // rivate long damage;
-    private final int damageAmplitude = 20;
+    public int damageAmplitude;
 
     // Constructeur
-    public Enemy(String name, int health) {
+    public Enemy(String name, int health, int damageAmplitude) {
         this.name = name;
-        this.health = 20;
+        this.health = health;
         rand = new Random();
+        this.damageAmplitude = damageAmplitude;
     }
 
     // getters

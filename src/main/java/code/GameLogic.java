@@ -17,7 +17,7 @@ public class GameLogic {
     private static Level level7;
 
 
-    private static Enemy enemy;
+    private static Enemy troll;
     private static Enemy basilic;
     private static Enemy detraqueurs;
     private static Enemy voldemort;
@@ -57,16 +57,27 @@ public class GameLogic {
         wizard.assignHouse(sortingHat);
 
         System.out.println(name + ", The magic Choixpeau has just assigned to the House " + wizard.getHouse().name);
-        enemy = new Enemy("TROLL", 200);
+        troll = new Enemy("TROLL", 20, 20);
         List<Enemy> enemyList = new ArrayList<Enemy>();
-        enemyList.add(enemy);
-        level1 = new Level(1, enemy, "The Philosopher's stone");
+        enemyList.add(troll);
+        level1 = new Level(1, troll, "The Philosopher's stone");
         level1.start(wizard);
-        fight(wizard, enemy, new Scanner(System.in));
+        fight(wizard, troll, new Scanner(System.in));
         System.out.println(wizard.health);
-        System.out.println(enemy.health);
+        System.out.println(troll.health);
         // upDate();
-        level1.end(wizard, enemy, new Scanner(System.in));
+        level1.end(wizard, troll, new Scanner(System.in));
+        basilic = new Enemy("BASILIC", 25, 25);
+        level2 = new Level(2, basilic,"The Chamber of Secrets" );
+        level2.start(wizard);
+        if(SortingHat.assignHouse().equals(ListHouse.GRYFFINDOR.name())){
+            System.out.println("You are from Gryffindor so you can use the legendary sword of Godric Gryffindor to take the basilic down.");
+        }else {
+            System.out.println("You are not from Gryffindor. You have to pull one of the fangs of the basilic out et use to detroy the newspaper of Tom Jedusor.");
+        }
+        fight(wizard, basilic, new Scanner(System.in));
+        System.out.println(wizard.health);
+        System.out.println(basilic.health);
 
     }
     public static boolean isValidPseudo(String name) {
