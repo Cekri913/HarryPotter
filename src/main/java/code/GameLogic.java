@@ -62,6 +62,7 @@ public class GameLogic {
         enemyList.add(troll);
         level1 = new Level(1, troll, "The Philosopher's stone");
         level1.start(wizard);
+       // Weapon weapon  = new Weapon("rock");
         fight(wizard, troll, new Scanner(System.in));
         System.out.println(wizard.health);
         System.out.println(troll.health);
@@ -73,11 +74,16 @@ public class GameLogic {
         if(SortingHat.assignHouse().equals(ListHouse.GRYFFINDOR.name())){
             System.out.println("You are from Gryffindor so you can use the legendary sword of Godric Gryffindor to take the basilic down.");
         }else {
-            System.out.println("You are not from Gryffindor. You have to pull one of the fangs of the basilic out et use to detroy the newspaper of Tom Jedusor.");
+            System.out.println("You are not from Gryffindor. You have to pull one of the fangs of the basilic out et use it to destroy the newspaper of Tom Jedusor.");
         }
         fight(wizard, basilic, new Scanner(System.in));
         System.out.println(wizard.health);
         System.out.println(basilic.health);
+        level2.end(wizard, basilic, new Scanner(System.in));
+        detraqueurs = new Enemy("Les detraqueurs", 45, 40);
+        level3 = new Level(3, detraqueurs, "The Prisoner of Azkaban");
+        level3.start(wizard);
+
 
     }
     public static boolean isValidPseudo(String name) {
@@ -129,7 +135,7 @@ public class GameLogic {
                     choice=c;
                 }
             }
-            System.out.println("You choosed : " + choice.name() );
+            System.out.println("You chose : " + choice.name() );
             return choice;
         }catch (Exception e){
             System.out.println(" Please choose a core in the list");
@@ -183,7 +189,7 @@ public class GameLogic {
 
     /*
     public void upDate(){
-        // Vérifier si wizard et enemy sont encore en vie
+        // Verifier si wizard et enemy sont encore en vie
         if(wizard.IsAlive() && enemy.IsAlive()) {
             fight(wizard, enemy, new Scanner(System.in));
         }else{

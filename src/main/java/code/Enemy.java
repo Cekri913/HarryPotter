@@ -9,14 +9,14 @@ public class Enemy {
     public int health;
     private Random rand;
     // rivate long damage;
-    public int damageAmplitude;
+    public int damageAmplitude = 15;
 
     // Constructeur
     public Enemy(String name, int health, int damageAmplitude) {
         this.name = name;
         this.health = health;
         rand = new Random();
-        this.damageAmplitude = damageAmplitude;
+        this.damageAmplitude = 15;
     }
 
     // getters

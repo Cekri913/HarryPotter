@@ -1,14 +1,15 @@
 package code;
 
+import java.util.Random;
+
 public class Weapon {
     private String name;
     private int weight;
     private boolean isLifted;
 
 
-    public Weapon(String name, int weight) {
+    public Weapon(String name) {
         this.name = name;
-        this.weight = weight;
         this.isLifted = false;
     }
 
@@ -19,7 +20,9 @@ public class Weapon {
     // La méthode relacher permet de relâcher l’objet sur la tête du troll, ce qui réduit ses points de vie en fonction du poids de l’objet.
     public void release(Enemy enemy) {
         if (this.isLifted){
-            enemy.calculateDamage(this.weight);
+           // Random r = new Random();
+            //int weight = (int) r;
+            enemy.calculateDamage(weight);
             this.isLifted = true;
         }
     }

@@ -46,14 +46,14 @@ public class Level {
 
         switch (this.number){
             case 1, 2, 3, 5, 6:
-                System.out.println(" You are meeting an enemy : " + enemy.getName());
+                System.out.println("You are meeting an enemy : " + enemy.getName());
                 break;
             case 4,7 :
                 String listEnemy = "";
                 for(Enemy enemy : enemies) {
                     listEnemy = listEnemy + enemy.getName() + ", ";
                 }
-                System.out.println(" You are meeting enemies : " + listEnemy);
+                System.out.println("You are meeting enemies : " + listEnemy);
                 break;
         }
         System.out.println("The fight has begun ....");

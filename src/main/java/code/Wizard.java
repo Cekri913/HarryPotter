@@ -33,7 +33,7 @@ public class Wizard {
         return spellAmplitude;
     }
 
-    public static int spellAmplitude = 15;
+    public static int spellAmplitude = 10;
 
     private String [] houses = { "SLYTHERIN", "HUFFLEPUFF", "GRYFFINDOR", "RAVENCLAW"};
 
