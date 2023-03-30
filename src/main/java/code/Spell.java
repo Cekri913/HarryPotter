@@ -1,23 +1,38 @@
 package code;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
+@Getter @Setter
 public class Spell {
 
     //Attributs
     private String name;
     private int damage;
+    private double accuracy;
 
     // Constructeur
 
-    public Spell(String name, int damage) {
+    public Spell(String name, int damage, double accuracy) {
         this.name = name;
         this.damage = damage;
+        this.accuracy = accuracy;
     }
 
     // Méthodes
+
+    public void cast(Enemy enemy){
+        System.out.println("Your throwing the spall " + name + ".");
+        if(Math.random() < accuracy){
+            System.out.println("The spell succeed and inflicted " + damage + " of damages.");
+            enemy.calculateDamage(damage);
+        }else{
+            System.out.println("The spell failed...");
+        }
+    }
 
     public static void wingardiumLeviosa(Wizard wizard, Enemy enemy) {
     // spell to throw object on the troll

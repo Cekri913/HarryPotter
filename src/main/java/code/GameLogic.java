@@ -180,23 +180,26 @@ public class GameLogic {
         }
 
     }
-
-    /*
-    public void upDate(){
-        // Verifier si wizard et enemy sont encore en vie
-        if(wizard.IsAlive() && enemy.IsAlive()) {
-            fight(wizard, enemy, new Scanner(System.in));
-        }else{
-            // Afficher un message si le joueur ou le troll est mort
-            if (!wizard.IsAlive()){
-                System.out.println(Constant.customDisplayText(Constant.BLACK,wizard.getName() + ", " + enemy.getName() + " just killed you..."));
-            }
-            else if(!enemy.IsAlive()) {
-                System.out.println(Constant.customDisplayText(Constant.GREEN,"Congratulation " + wizard.getName() + ", " + "you just killed " + enemy.getName()));
-            }
+    public void usePotion(Potion potion){
+        if(wizard.getHouse().name.equals(ListHouse.GRYFFINDOR.name())){
+            potion.setEffectiveness((int) (potion.getEffectiveness() * 1.5));
         }
-    }*/
+        potion.drink(wizard);
+    }
+    public void castSpell(Spell spell, Enemy enemy){
+        if(wizard.getHouse().name.equals(ListHouse.SLYTHERIN.name())){
+            spell.setDamage((int) (spell.getDamage() * 1.5));
+        }spell.cast(enemy);
+    }
+    public void takeDamage(int damage){
+        if(wizard.getHouse().name.equals(ListHouse.GRYFFINDOR.name())){
+            damage = (int) (damage * 0.8);
+        }
+        wizard.setHealth(wizard.getHealth() - damage);
+    }
+    public void spellAccuracy(Spell spell){
 
+    }
 
 }
 

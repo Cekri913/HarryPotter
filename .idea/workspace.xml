@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1815521-5178-4b3e-802f-c30bdc2419cd" name="Changes" comment="1st level amelioration">
+    <list default="true" id="c1815521-5178-4b3e-802f-c30bdc2419cd" name="Changes" comment="level 3 alm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/GameLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Potion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Spell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Wizard.java" afterDir="false" />
     </list>
@@ -148,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680202034971</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="level 3 alm">
+      <created>1680212459769</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680212459769</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,7 +186,8 @@
     <MESSAGE value="1st level completed" />
     <MESSAGE value="2nd level completed" />
     <MESSAGE value="1st level amelioration" />
-    <option name="LAST_COMMIT_MESSAGE" value="1st level amelioration" />
+    <MESSAGE value="level 3 alm" />
+    <option name="LAST_COMMIT_MESSAGE" value="level 3 alm" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/HarryPotter$Main.ic" NAME="Main Coverage Results" MODIFIED="1679963049288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -67,17 +67,16 @@ public class Wizard {
         if (inDefense) {
             // Réduire les dégâts d'un certain coefficient si le joueur est en défense
             Random rand = new Random();
-            int  coef = rand.nextInt(1,4);
+            int coef = rand.nextInt(1,4);
             damage = damage / coef;
             System.out.println("coefficient d'atténuation = " + coef);
             System.out.println("damage in defense après atténuation de " + damage);
         }
-        
-
         health -= damage;
     }
 
    public void attack(Enemy enemy) {
+        this.inDefense = false;
        Random r = new Random();
        int damage = r.nextInt(16);
        if (damage == 0) {

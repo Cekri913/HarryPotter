@@ -86,9 +86,8 @@ public class Level {
                 System.out.println("health increasing...");
                 double amount = (double) (Math.random()) * 2 + 1;
                 wizard.increaseHealth(amount);
-                System.out.println("Increasing success ! \n Your health has been multiplied by " + amount);
-                System.out.println(wizard.getHealth());
-                ;
+                System.out.println("Increasing success ! \n Your health has been increased, your health now is " + wizard.getHealth()) ;
+
             }
             if (choice == 2) {
                 System.out.println("damage increasing...");
