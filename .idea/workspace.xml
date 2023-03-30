@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1815521-5178-4b3e-802f-c30bdc2419cd" name="Changes" comment="2nd level completed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/MyClass.java" afterDir="false" />
+    <list default="true" id="c1815521-5178-4b3e-802f-c30bdc2419cd" name="Changes" comment="1st level amelioration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/GameLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/LiftObjectSpell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/MyClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/MyClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Spell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Weapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Wizard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,14 +134,22 @@
       <option name="project" value="LOCAL" />
       <updated>1680117043492</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="1st level amelioration">
+      <created>1680179797382</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680179797382</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1st level alm2" />
     <MESSAGE value="1st level completed" />
     <MESSAGE value="2nd level completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="2nd level completed" />
+    <MESSAGE value="1st level amelioration" />
+    <option name="LAST_COMMIT_MESSAGE" value="1st level amelioration" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/HarryPotter$Main.ic" NAME="Main Coverage Results" MODIFIED="1679963049288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

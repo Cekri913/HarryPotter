@@ -6,6 +6,8 @@ public class Enemy {
 
     // Attributs
     public String name;
+    public int x;
+    public int y;
     public int health;
     private Random rand;
     // rivate long damage;
@@ -40,12 +42,6 @@ public class Enemy {
         return this.health > 0;
     }
 
-
-
-    //La méthode estVaincu renvoie true si les points de vie du troll sont à zéro ou en dessous.
-    public boolean isDefeated(){
-        return this.health <= 0;
-    }
 }
 
 

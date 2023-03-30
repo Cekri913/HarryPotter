@@ -11,7 +11,13 @@ public class Level {
 
     // Attributs
     private int number;
+
+
     private List<Enemy> enemies;
+
+    public Enemy getEnemy() {
+        return enemy;
+    }
 
     private Enemy enemy;
 
@@ -28,9 +34,9 @@ public class Level {
 
     // Constructeur
 
-    public Level(int argNumber, Enemy argEnemy, String argName){
+    public Level(int argNumber, Enemy enemy, String argName){
         this.number = argNumber;
-        this.enemy = argEnemy;
+        this.enemy = enemy;
         this.name = argName;
     }
 

@@ -4,8 +4,11 @@ import code.GameLogic;
 
 
 public class Main {
+    public static boolean a = true;
     public static void main(String[] args){
-        GameLogic game = new GameLogic();
+        while (a) {
+            GameLogic game = new GameLogic();
+        }
 
     }
 
