@@ -1,12 +1,16 @@
 package code;
 
-import java.util.Random;
+import lombok.Data;
+import lombok.Getter;
 
+import java.util.Random;
+@Getter
 public class Enemy {
 
     // Attributs
     public String name;
     public int x;
+    public int damage;
     public int y;
     public int health;
     private Random rand;
@@ -28,12 +32,19 @@ public class Enemy {
     }
 
 
-    public void attack(Wizard wizard) {
-        int damage = (int) (Math.random() * damageAmplitude) + 1;
+    public void attack(Wizard wizard, Level level ) {
+        if (!this.IsAlive()) {
+            System.out.println(Constant.customDisplayText(Constant.GREEN,"Congratulation " + wizard.getName() + ", " + "you just killed " + name));
+            level.end(wizard, this);
+        } else{
+            Random r = new Random();
+        damage = r.nextInt(10, 16);
         wizard.calculateDamage(damage);
         System.out.println(Constant.customDisplayText(Constant.RED, name + " has inflicted you " + damage + " of damage"));
+        System.out.println("damage après atténuation de " + name + " : " + damage);
     }
 
+    }
     // La méthode prendreDegats permet de réduire les points de vie du troll lorsqu’il est touché par un objet.
     public void calculateDamage(int damage) {
         this.health -= damage;

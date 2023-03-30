@@ -26,15 +26,25 @@ public class Spell {
         list.add("rock");
         list.add("chair");
         list.add("table");
-        for(int i = 0; i < list.size(); i++){
-            System.out.println(i + "-  " + list.get(i));
+        for(int i = 0; i < list.size() + 1; i++){
+            System.out.println(i+1 + "-  " + list.get(i));
         }
 
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
         while(!sc.hasNextInt()){
-            System.out.println(Constant.customDisplayText(Constant.RED,"Please choose an number between 1 and 4", Constant.BOLD_TEXT));
+            System.out.println(Constant.customDisplayText(Constant.RED,"Please choose an integer ", Constant.BOLD_TEXT));
             sc.nextLine();
+        }
+        if(choice == 1){
+            System.out.println("You chose the " + list.get(choice));
+        } else if (choice == 2) {
+            System.out.println("You chose the " + list.get(choice));
+        } else if (choice == 3) {
+            System.out.println("You chose the " + list.get(choice));
+        }else{
+            System.out.println("Please chose a number between 1 and 3");
+
         }
         Random rand = new Random();
         int successRate = 60; // 60 % de chance que le sort réussisse

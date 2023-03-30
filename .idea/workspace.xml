@@ -7,13 +7,10 @@
     <list default="true" id="c1815521-5178-4b3e-802f-c30bdc2419cd" name="Changes" comment="1st level amelioration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/GameLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/LiftObjectSpell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/MyClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/MyClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Spell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Weapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/Wizard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +42,9 @@
         <option name="workspaceImportEnabled" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2NcBxN3HVh6CAMb6g08Nyc1MqD1" />
   <component name="ProjectLevelVcsManager">
@@ -141,8 +141,38 @@
       <option name="project" value="LOCAL" />
       <updated>1680179797382</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="1st level amelioration">
+      <created>1680202034971</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680202034971</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1st level alm2" />

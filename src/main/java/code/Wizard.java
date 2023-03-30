@@ -1,25 +1,26 @@
 package code;
 import lombok.Data;
+import lombok.Getter;
 
 import java.util.Objects;
 import java.util.Random;
 
 
 //attributs du personnage
-@Data
+@Data @Getter
 public class Wizard {
     private String name;
 
     public int x;
     public int y;
-    public static int health = 40;
+    public int health;
     private boolean inDefense;
     private Pets pet;
     private static Core core;
     private Wand wand;
     private Random rand;
     public House house;
-    public static int spellAmplitude = 10;
+    public static int spellAmplitude = 15;
 
     // Constructor
     public Wizard(String name) { //, int health, Pets pet, Wand wand, House house) {
@@ -30,7 +31,7 @@ public class Wizard {
     }
     // getters
 
-    public static int getHealth() {
+    public int getHealth() {
         return health;
     }
     public static int getSpellAmplitude() {
@@ -62,16 +63,23 @@ public class Wizard {
     }
     // Méthodes
     public void calculateDamage(int damage) {
+        System.out.println("indefense wizard = " + inDefense );
         if (inDefense) {
             // Réduire les dégâts d'un certain coefficient si le joueur est en défense
-            int coef  =(int) (Math.random()*5) + 1;
+            Random rand = new Random();
+            int  coef = rand.nextInt(1,4);
             damage = damage / coef;
+            System.out.println("coefficient d'atténuation = " + coef);
+            System.out.println("damage in defense après atténuation de " + damage);
         }
-        this.health -= damage;
+        
+
+        health -= damage;
     }
 
    public void attack(Enemy enemy) {
-       int damage = (int) (Math.random() * spellAmplitude);
+       Random r = new Random();
+       int damage = r.nextInt(16);
        if (damage == 0) {
            System.out.println("You missed your spell...");
        } else {
@@ -80,9 +88,9 @@ public class Wizard {
        }
    }
 
-    public void defend(Enemy enemy) {
+    public void defend(Enemy enemy, Level level) {
         this.inDefense = true;
-        enemy.attack(this);
+        enemy.attack(this, level);
     }
 
 }

@@ -8,15 +8,6 @@ import java.util.Scanner;
 public class GameLogic {
     // levels
     private static Level level;
-    private static Level level1;
-    private static Level level2;
-    private static Level level3;
-    private static Level level4;
-    private static Level level5;
-    private static Level level6;
-    private static Level level7;
-
-
     private static Enemy troll;
     private static Enemy basilic;
     private static Enemy detraqueurs;
@@ -60,29 +51,27 @@ public class GameLogic {
         troll = new Enemy("TROLL", 20, 20);
         List<Enemy> enemyList = new ArrayList<Enemy>();
         enemyList.add(troll);
-        level1 = new Level(1, troll, "The Philosopher's stone");
-        level1.start(wizard);
+        level = new Level(1, troll, "The Philosopher's stone");
+        level.start(wizard);
        // Weapon weapon  = new Weapon("rock");
-        fight(wizard, troll, new Scanner(System.in));
-        System.out.println(wizard.health);
-        System.out.println(troll.health);
+        fight(wizard, troll);
         // upDate();
-        level1.end(wizard, troll, new Scanner(System.in));
+        level.end(wizard, troll);
         basilic = new Enemy("BASILIC", 25, 25);
-        level2 = new Level(2, basilic,"The Chamber of Secrets" );
-        level2.start(wizard);
-        if(SortingHat.assignHouse().equals(ListHouse.GRYFFINDOR.name())){
+        level = new Level(2, basilic,"The Chamber of Secrets" );
+        level.start(wizard);
+        if(wizard.getHouse().name.equals(ListHouse.GRYFFINDOR.name())){
             System.out.println("You are from Gryffindor so you can use the legendary sword of Godric Gryffindor to take the basilic down.");
         }else {
             System.out.println("You are not from Gryffindor. You have to pull one of the fangs of the basilic out et use it to destroy the newspaper of Tom Jedusor.");
         }
-        fight(wizard, basilic, new Scanner(System.in));
-        System.out.println(wizard.health);
-        System.out.println(basilic.health);
-        level2.end(wizard, basilic, new Scanner(System.in));
+        fight(wizard, basilic);
+        System.out.println("wizard : " + wizard.health);
+        System.out.println("basilic : " + basilic.health);
+        level.end(wizard, basilic);
         detraqueurs = new Enemy("Les detraqueurs", 45, 40);
-        level3 = new Level(3, detraqueurs, "The Prisoner of Azkaban");
-        level3.start(wizard);
+        level = new Level(3, detraqueurs, "The Prisoner of Azkaban");
+        level.start(wizard);
 
 
     }
@@ -90,6 +79,9 @@ public class GameLogic {
         boolean hasUppercase = !name.equals(name.toLowerCase());
         boolean hasDigit = name.matches(".*\\d.*");
         return hasUppercase && hasDigit;
+    }
+    public static boolean lifeVerify(Wizard wizard, Enemy enemy){
+        return !wizard.IsAlive() && !enemy.IsAlive();
     }
     public void choosePet() {
         System.out.println("Which pet do you want ? ");
@@ -125,7 +117,6 @@ public class GameLogic {
         answer = sc.nextLine();
 
         try {
-            System.out.println("range = " + range);
             while (!range.isValidIntValue(Integer.parseInt(answer))) {
                 System.out.println("Please choose a number between 1 and 4");
                 answer = sc.nextLine();
@@ -149,9 +140,9 @@ public class GameLogic {
      * Narre la mécanique et le fonctionnement du combat
      * @param wizard
      * @param enemy
-     * @param scan
      */
-    public static void fight(Wizard wizard, Enemy enemy, Scanner scan) {
+    public static void fight(Wizard wizard, Enemy enemy) {
+        Scanner scan = new Scanner(System.in);
         while(wizard.IsAlive() && enemy.IsAlive()) {
             System.out.println("Do you want to attack (1) or defend (2) ? : ");
             while (!scan.hasNextInt()) {
@@ -165,19 +156,22 @@ public class GameLogic {
             }
             if (choice == 1) {
                 System.out.println("You choose to attack..");
+                System.out.println("santé " + enemy.getName() + " : " + enemy.getHealth());
+                System.out.println("santé wizard : " + wizard.getHealth());
                 wizard.attack(enemy);
                 System.out.println();
-                enemy.attack(wizard);
+                enemy.attack(wizard, level);
                 System.out.println();
 
             }
             if (choice == 2) {
+                System.out.println();
                 System.out.println("You choose to defend");
-                wizard.defend(enemy);
+                wizard.defend(enemy, level);
                 // force qui atténue la puissance de frappe de l'ennemy
             }
-            System.out.println(wizard.health);
-            System.out.println(enemy.health);
+            System.out.println("santé " + enemy.getName()+ " : " + enemy.health);
+            System.out.println("santé wizard : " + wizard.health);
         }if(!wizard.IsAlive()){
             System.out.println(Constant.customDisplayText(Constant.BLACK,wizard.getName() + ", " + enemy.getName() + " just killed you..."));
         } else if (!enemy.IsAlive()) {
