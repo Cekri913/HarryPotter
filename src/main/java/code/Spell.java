@@ -3,9 +3,8 @@ package code;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
+
+
 @Getter @Setter
 public class Spell {
 
@@ -23,6 +22,8 @@ public class Spell {
     }
 
     // Méthodes
+
+    /*
 
     public void cast(Enemy enemy){
         System.out.println("Your throwing the spall " + name + ".");
@@ -61,11 +62,13 @@ public class Spell {
             System.out.println("Please chose a number between 1 and 3");
 
         }
+
+
         Random rand = new Random();
         int successRate = 60; // 60 % de chance que le sort réussisse
         if (rand.nextInt(100) < successRate){
             System.out.println(Constant.customDisplayText(Constant.YELLOW,"object lifting..."));
-            if(wizard.y < enemy.y) {
+            if(wizard < enemy) {
                 System.out.println(Constant.customDisplayText(Constant.BLACK, "Take down the " + list.get(choice) + " on the troll ! "));
                 int damage;
                 damage = rand.nextInt(15);
@@ -77,7 +80,7 @@ public class Spell {
 
         }
 
-}
+
     public void Sword(Enemy enemy) {
                 Random r = new Random();
                 int damage;
@@ -95,7 +98,11 @@ public class Spell {
 
     }
 
+    public void ExpectoPatronum(){
 
+    }
+
+*/
 
 
 

@@ -2,7 +2,8 @@ package code;
 import lombok.Data;
 import lombok.Getter;
 
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -10,24 +11,21 @@ import java.util.Random;
 @Data @Getter
 public class Wizard {
     private String name;
-
-    public int x;
-    public int y;
     public int health;
     private boolean inDefense;
     private Pets pet;
     private static Core core;
-    private Wand wand;
-    private Random rand;
     public House house;
     public static int spellAmplitude = 15;
+    private List<Spell> spells;
 
     // Constructor
     public Wizard(String name) { //, int health, Pets pet, Wand wand, House house) {
         this.name = name;
-        this.health = 40;
+        this.health = 100;
         this.house  = new House(SortingHat.assignHouse());
         this.inDefense = false;
+        spells = new ArrayList<>();
     }
     // getters
 
@@ -37,17 +35,11 @@ public class Wizard {
     public static int getSpellAmplitude() {
         return spellAmplitude;
     }
-    public static Core getCore() {
-        return core;
-    }
 
     //setters
 
     public void setPet(Pets pet) {
         this.pet = pet;
-    }
-    public void equipWand(Wand wand) {
-        this.wand = wand;
     }
     public boolean IsAlive(){
         return this.health > 0;
@@ -56,7 +48,7 @@ public class Wizard {
         this.health *= amount;
     }
     public void increaseDamage(double amount) {
-        this.spellAmplitude *= amount;
+        spellAmplitude *= amount;
     }
     public void assignHouse(SortingHat sortingHat) {
         this.house = house;
@@ -73,6 +65,10 @@ public class Wizard {
             System.out.println("damage in defense après atténuation de " + damage);
         }
         health -= damage;
+    }
+    public void learnSpell(Spell spell){
+        spells.add(spell);
+        System.out.println("You learned the spell " + spell.getName() + ".");
     }
 
    public void attack(Enemy enemy) {
