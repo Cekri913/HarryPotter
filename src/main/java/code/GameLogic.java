@@ -7,6 +7,7 @@ import java.util.Scanner;
 
     private Wizard wizard;
 
+    //Method to style the text et make it dynamic
     public static void dispayWithDelay(String input,long delay){
         for (int i=0; i< input.length(); i++){
             System.out.print(input.charAt(i));
@@ -19,6 +20,8 @@ import java.util.Scanner;
         System.out.print("\n\n");
     }
 
+
+    // This Constructor contains the whole game
     public GameLogic() {
         Scanner scanner = new Scanner(System.in);
         // Initialisation
@@ -58,7 +61,11 @@ import java.util.Scanner;
 
         SortingHat sortingHat = new SortingHat();
         wizard.assignHouse(sortingHat);
-        System.out.println(name + ", The magic Choixpeau has just assigned to the House " + wizard.getHouse().name);
+        String randomHouse = name + ", The magic Choixpeau has just assigned to the House " + wizard.getHouse().name;
+
+        dispayWithDelay(randomHouse, 70);
+
+
         // enemies
 
         Enemy troll = new Enemy("TROLL", 30);
@@ -88,6 +95,7 @@ import java.util.Scanner;
         level3.start();
         System.out.println("The Detractors are on the loose. They roam the streets, the countryside.");
         System.out.println("Hopefully, you've heard of a spell to put them to flight... Expect... Expecta... Ah yes, Expecto Patronum.");
+        System.out.print("\n\n");
         System.out.println("Your goal is to learn the spell, then use it to defeat the Detractors.");
         wizard.learnSpell(new Spell("Expecto Patronum", 0, 1));
         fight(wizard, detraqueurs, level3);
@@ -98,21 +106,24 @@ import java.util.Scanner;
         Enemy duo1 = new Enemy("Peter Pettigrew et Voldemort",140 );
         Level level4 = new Level(4, duo1, "The Goblet of Fire");
         level4.start();
-        System.out.println("Unfortunately, you have won the Three Wizards Tournament... and the right to die. You are in a graveyard, where Voldemort and Peter Pettigrew are also.\n Your only chance to escape is to get close to the Portkey and lure him to you (Accio!). \n Don't worry, you'll see Voldemort again...");
+        String lvl4 = "Unfortunately, you have won the Three Wizards Tournament... and the right to die. You are in a graveyard, where Voldemort and Peter Pettigrew are also.\n Your only chance to escape is to get close to the Portkey and lure him to you (Accio!). \n Don't worry, you'll see Voldemort again...";
+        dispayWithDelay(lvl4, 50);
         fight(wizard, duo1, level4);
         level4.end(wizard, duo1);
 
         Enemy doloresOmbrage = new Enemy("Dolores Ombrage", 70);
         Level level5 = new Level(5, doloresOmbrage, "The Order of the Phenix");
         level5.start();
-        System.out.println("It's time for the BUSE (Universal Certificate of Elementary Witchcraft)! Dolores Umbridge is watching over the grain. \n Your goal is to distract her until the fireworks are ready to be used.");
+        String lvl5 = "It's time for the BUSE (Universal Certificate of Elementary Witchcraft)! Dolores Umbridge is watching over the grain. \n Your goal is to distract her until the fireworks are ready to be used.";
+        dispayWithDelay(lvl5, 50);
         fight(wizard, doloresOmbrage, level5);
         level5.end(wizard, doloresOmbrage);
 
         Enemy lesMangemorts = new Enemy("Les Mangemorts", 75);
         Level level6 = new Level(6, lesMangemorts, "The Half-Blood Prince");
         level6.start();
-        System.out.println("The Death Eaters are attacking Hogwarts. Are you ready to defend yourself? You must attack them from the front (Sectumsempra).\n If you are from Slytherin, you may decide to join the Death Eaters.");
+        String lvl6 = "The Death Eaters are attacking Hogwarts. Are you ready to defend yourself? You must attack them from the front (Sectumsempra).\n If you are from Slytherin, you may decide to join the Death Eaters.";
+        dispayWithDelay(lvl6, 50);
         if(wizard.getHouse().name.equals(ListHouse.SLYTHERIN.name())){
             System.out.println("You are from Slytherin, you can join them !");
             System.out.println("You get directly to the next and last level.");
@@ -125,7 +136,8 @@ import java.util.Scanner;
         Enemy duo2 =  new Enemy("Bellatrix Lestrange and Voldemort", 160);
         Level level7 = new Level(7, duo2, "The Deathly Hallows");
         level7.start();
-        System.out.println("Let's stop stalling and get to the root of the problem. You are facing Voldemort and Bellatrix Lestrange.\n Be careful, they can kill you with Avada Kedavra if you are not ready.");
+        String lvl7 = "Let's stop stalling and get to the root of the problem. You are facing Voldemort and Bellatrix Lestrange.\n Be careful, they can kill you with Avada Kedavra if you are not ready.";
+        dispayWithDelay(lvl7, 50);
         fight(wizard, duo2, level7);
         level7.end(wizard, duo2);
 
@@ -135,9 +147,8 @@ import java.util.Scanner;
         boolean hasDigit = name.matches(".*\\d.*");
         return hasUppercase && hasDigit;
     }
-    public static boolean lifeVerify(Wizard wizard, Enemy enemy){
-        return !wizard.IsAlive() && !enemy.IsAlive();
-    }
+
+    // Method for the wizard to choose his pet
     public void choosePet() {
         System.out.println("Which pet do you want ? ");
 
@@ -148,21 +159,42 @@ import java.util.Scanner;
         String answer = sc.nextLine().toUpperCase();
 
         while (!Pets.contains(answer)) {
-            System.out.println("PLease choose a pet in the list");
+            System.out.println("PLease choose a pet in the list.");
             answer = sc.nextLine().toUpperCase();
         }
         wizard.setPet(Pets.valueOf(answer));
-        System.out.println("Good choice, you chose the " + wizard.getPet() + ". This animal will follow you throughout your journey");
+        String choosePet = "Good choice, you chose the " + wizard.getPet() + ". This animal will follow you throughout your journey.";
+        dispayWithDelay(choosePet, 50);
     }
 
+        public void usePotion(Potion potion){
+            if(wizard.getHouse().name.equals(ListHouse.HUFFLEPUFF.name())){
+                System.out.println("You are  from Hufflepuff so potions are more effective on you.");
+                potion.setEffectiveness((int) (potion.getEffectiveness() * 1.5));
+                potion.drink(wizard);
+            }
+        }
+        public void castSpell(Spell spell, Enemy enemy){
+            if(wizard.getHouse().name.equals(ListHouse.SLYTHERIN.name())){
+                System.out.println("You are from Slytherin so your spells are more powerfull.");
+                spell.setDamage((int) (spell.getDamage() * 1.5));
+            }spell.cast(enemy);
+        }
+        public void spellAccuracy(Spell spell, Enemy enemy){
+            if(wizard.getHouse().name.equals(ListHouse.RAVENCLAW.name())){
+                spell.setAccuracy(spell.getAccuracy() * 1.5);
+            }
+            spell.cast(enemy);
+        }
+// Methode for the wizard to choose the core of the wand
     public static Core chooseCore() {
         System.out.println("Please choose a core for your wand");
-        final ValueRange range = ValueRange.of(1,Core.values().length);
+        final ValueRange range = ValueRange.of(1, Core.values().length);
         String answer;
         Core choice = null;
 
         for (Core core : Core.values()) {
-            System.out.println( core.getCoreIndice() + " - " +core);
+            System.out.println(core.getCoreIndice() + " - " + core);
         }
         Scanner sc = new Scanner(System.in);
         answer = sc.nextLine();
@@ -172,19 +204,20 @@ import java.util.Scanner;
                 System.out.println("Please choose a number between 1 and 4");
                 answer = sc.nextLine();
             }
-            for(Core c : Core.values()){
-                if (Integer.parseInt(answer)==c.getCoreIndice()){
-                    choice=c;
+            for (Core c : Core.values()) {
+                if (Integer.parseInt(answer) == c.getCoreIndice()) {
+                    choice = c;
                 }
             }
-            System.out.println("You chose : " + choice.name() );
+            System.out.println("You chose : " + choice.name());
             return choice;
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(" Please choose a core in the list");
             return chooseCore();
         }
-
     }
+
+    // Method for the mechanic of all the fight
     public static void fight(Wizard wizard, Enemy enemy, Level level) {
         Scanner scan = new Scanner(System.in);
         while(wizard.IsAlive() && enemy.IsAlive()) {
@@ -206,7 +239,6 @@ import java.util.Scanner;
                 System.out.println();
                 enemy.attack(wizard, level);
                 System.out.println();
-
             }
             if (choice == 2) {
                 System.out.println();
@@ -222,34 +254,6 @@ import java.util.Scanner;
             System.out.println(Constant.customDisplayText(Constant.GREEN,"Congratulation " + wizard.getName() + ", " + "you just killed " + enemy.getName()));
 
         }
-
-    }
-    public void usePotion(Potion potion){
-        if(wizard.getHouse().name.equals(ListHouse.HUFFLEPUFF.name())){
-            System.out.println("You are  from Hufflepuff so potions are more effective on you.");
-            potion.setEffectiveness((int) (potion.getEffectiveness() * 1.5));
-        }
-        potion.drink(wizard);
-    }
-    public void castSpell(Spell spell, Enemy enemy){
-        if(wizard.getHouse().name.equals(ListHouse.SLYTHERIN.name())){
-            System.out.println("You are from Slytherin so your spells are more powerfull.");
-            spell.setDamage((int) (spell.getDamage() * 1.5));
-        }//spell.cast(enemy);
-    }
-    public void takeDamage(int damage){
-        if(wizard.getHouse().name.equals(ListHouse.GRYFFINDOR.name())){
-            System.out.println("You are from Gryffindor so you are more resistant to enemys' attacks.");
-            damage = (int) (damage * 0.8);
-        }
-        wizard.setHealth(wizard.getHealth() - damage);
-    }
-    public void spellAccuracy(Spell spell, Enemy enemy){
-        if(wizard.getHouse().name.equals(ListHouse.RAVENCLAW.name())){
-            spell.setAccuracy(spell.getAccuracy() * 1.5);
-        }
-        //spell.cast(enemy);
-
     }
 
 }

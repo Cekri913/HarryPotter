@@ -5,7 +5,7 @@ public class MyClass {
     // àclasse MyClass qui a une méthode equals redéfinie
     // pour comparer deux instances de la classe en fonction de leur valeur.
 
-    private int value;
+    private final int value;
 
     public MyClass(int value) {
         this.value = value;
@@ -22,11 +22,7 @@ public class MyClass {
             return false;
         }
         final MyClass other = (MyClass) obj;
-        if(this.value != other.value){
-            return false;
-        }
-
-        return true;
+        return this.value == other.value;
     }
 
 

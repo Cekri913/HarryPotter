@@ -53,24 +53,41 @@ public class Wizard {
     public void assignHouse(SortingHat sortingHat) {
         this.house = house;
     }
-    // Méthodes
+    // Methodes
     public void calculateDamage(int damage) {
-        System.out.println("indefense wizard = " + inDefense );
         if (inDefense) {
             // Réduire les dégâts d'un certain coefficient si le joueur est en défense
             Random rand = new Random();
             int coef = rand.nextInt(1,4);
             damage = damage / coef;
-            System.out.println("coefficient d'atténuation = " + coef);
-            System.out.println("damage in defense après atténuation de " + damage);
         }
         health -= damage;
+        this.takeDamage(damage);
+    }
+    public static void dispayWithDelay(String input,long delay){
+        for (int i=0; i< input.length(); i++){
+            System.out.print(input.charAt(i));
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        System.out.print("\n\n");
     }
     public void learnSpell(Spell spell){
         spells.add(spell);
+        String spellLearning = "You are practising the spell in order to learn it...";
+        dispayWithDelay(spellLearning, 60);
         System.out.println("You learned the spell " + spell.getName() + ".");
     }
-
+    public void takeDamage(int damage){
+        if(this.getHouse().name.equals(ListHouse.GRYFFINDOR.name())){
+            System.out.println("You are from Gryffindor so you are more resistant to enemys' attacks.");
+            damage = (int) (damage * 0.8);
+        }
+        this.setHealth(this.getHealth() - damage);
+    }
    public void attack(Enemy enemy) {
         this.inDefense = false;
        Random r = new Random();

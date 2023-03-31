@@ -7,13 +7,13 @@ import java.util.Random;
 @Getter @Setter
 public class Enemy {
 
-    // Attributs
+    // Attributes
     public String name;
     public int damage;
     public int health;
 
 
-    // Constructeur
+    // Constructor
     public Enemy(String name, int health) {
         this.name = name;
         this.health = health;
@@ -25,13 +25,14 @@ public class Enemy {
         return this.name;
     }
 
-
+    //Methodes
     public void attack(Wizard wizard, Level level ) {
         if (!this.IsAlive()) {
-            System.out.println(Constant.customDisplayText(Constant.GREEN,"Congratulation " + wizard.getName() + ", " + "you just killed " + name));
+            System.out.println(Constant.customDisplayText(Constant.GREEN,"Congratulation " + wizard.getName() + ", " + "you just killed " + name + "."));
             level.end(wizard, this);
         } else{
             Random r = new Random();
+            // We are generate a  random integer from 10 to 15
             damage = r.nextInt(10, 16);
             wizard.calculateDamage(damage);
             if(level.getNumber() == 4 ){
@@ -43,15 +44,15 @@ public class Enemy {
                 System.out.println("Bellatrix Lesange and Voldemort has inflicted you " + damage + " of damage.");
             }else {
                 System.out.println(Constant.customDisplayText(Constant.RED, name + " has inflicted you " + damage + " of damage."));
-                System.out.println("damage après atténuation de " + name + " : " + damage);
             }
         }
 
     }
-    // La méthode prendreDegats permet de réduire les points de vie du troll lorsqu’il est touché par un objet.
+    // The Method calculateDamage allow us to take damage made by the wizard
     public void calculateDamage(int damage) {
         this.health -= damage;
     }
+    // The method isAlive verify if the  enemy is alive or not at anytime in the game
     public boolean IsAlive(){
         return this.health > 0;
     }

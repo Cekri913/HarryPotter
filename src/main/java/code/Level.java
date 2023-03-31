@@ -1,56 +1,33 @@
 package code;
 
-import java.util.List;
-import java.util.Scanner;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.Scanner;
+@Getter @Setter
 public class Level {
 
-    public int getNumber() {
-        return number;
-    }
-
-    // Attributs
+    // Attributes
     private final int number;
-
-    public static List<Enemy> enemies;
-
     private final Enemy enemy;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     private String name;
 
-    // Constructeur
-
+    // Constructor
     public Level(int argNumber, Enemy enemy, String argName){
         this.number = argNumber;
         this.enemy = enemy;
         this.name = argName;
     }
-
     // Logic to start a level
     public void start(){
         System.out.println("Welcome at the level " + this.number + " : " + this.name);
 
         switch (this.number) {
             case 1, 2, 3, 5, 6 -> System.out.println("You are meeting an enemy : " + enemy.getName());
-            case 4, 7 -> {
-                StringBuilder listEnemy = new StringBuilder();
-                for (Enemy enemy : enemies) {
-                    listEnemy.append(enemy.getName()).append(", ");
-                }
-                System.out.println("You are meeting enemies : " + listEnemy);
-            }
+            case 4, 7 -> System.out.println("You are meeting enemies : " + enemy.getName());
+
         }
         System.out.println("The fight has begun ....");
-        // ajouter un attribut "PROCESS" pour narrer l'évolution/narrer l'histoire de chaque niveau
-
     }
 
     public void end(Wizard wizard, Enemy enemy) {
@@ -84,6 +61,7 @@ public class Level {
                     sc.nextLine();
                     choice = sc.nextInt();
                 }
+
                 if (choice == 1) {
                     System.out.println("health increasing...");
                     double amount = (Math.random()) * 2 + 1;
@@ -98,9 +76,9 @@ public class Level {
                     System.out.println(Wizard.getSpellAmplitude());
                 }
             }
-        } else if (!wizard.IsAlive()) {
-            System.out.println(Constant.customDisplayText(Constant.FIVE_TAB, "GAME OVER", Constant.RED));
-            GameLogic gameLogic2 = new GameLogic();
+            } else if (!wizard.IsAlive()) {
+                System.out.println(Constant.customDisplayText(Constant.FIVE_TAB, "GAME OVER", Constant.RED));
+                GameLogic gameLogic2 = new GameLogic();
         }
     }
 }

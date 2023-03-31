@@ -23,7 +23,7 @@ public class Spell {
 
     // Méthodes
 
-    /*
+
 
     public void cast(Enemy enemy){
         System.out.println("Your throwing the spall " + name + ".");
@@ -34,7 +34,7 @@ public class Spell {
             System.out.println("The spell failed...");
         }
     }
-
+/*
     public static void wingardiumLeviosa(Wizard wizard, Enemy enemy) {
     // spell to throw object on the troll
         System.out.println("Choose an object to lift with " + Constant.customDisplayText(Constant.ITALIC_TEXT, "Wingardium Leviosa"));
