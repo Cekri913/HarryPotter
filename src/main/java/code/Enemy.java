@@ -28,8 +28,7 @@ public class Enemy {
     //Methodes
     public void attack(Wizard wizard, Level level ) {
         if (!this.IsAlive()) {
-            System.out.println(Constant.customDisplayText(Constant.GREEN,"Congratulation " + wizard.getName() + ", " + "you just killed " + name + "."));
-            level.end(wizard, this);
+            return;
         } else{
             Random r = new Random();
             // We are generate a  random integer from 10 to 15
